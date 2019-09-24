@@ -1,0 +1,13 @@
+﻿Anotações sobre EntityFramework - Code First
+	1 - Instalar o EF = Install-Package EntityFramework
+	2 - Criar as classes de modelo
+	3 - Criar a classe de contexto
+		- Representar o EF
+		- Representar o DB
+		- Definir as classes que vão virar tabelas no banco
+	4 - Habilitar as migrações = Enable-Migrations
+	5 - Adicionar uma migração = Add-Migration NomeMigracao
+	6 - Atualizar o banco de dados = Update-Database -verbose
+
+Visualização do banco
+	 1 - View/SQL Server Object Explorer
