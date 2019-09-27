@@ -7,16 +7,10 @@ using System.Threading.Tasks;
 
 namespace ControleEquipamentos.DAL
 {
-    class EmprestimoDAO
+    class OcorrenciaDAO
     {
         private static Context ctx = SingletonContext.GetInstance();
 
-        public static List<Emprestimo> ListarEmprestimos() => ctx.Emprestimos.ToList();
-
-        public static void CadastrarEmprestimo(Emprestimo emp)
-        {
-            ctx.Emprestimos.Add(emp);
-            ctx.SaveChanges();
-        }
+        public static List<Ocorrencia> ListarOcorrencias() => ctx.Ocorrencias.ToList();
     }
 }

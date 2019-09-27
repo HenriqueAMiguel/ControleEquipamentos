@@ -16,7 +16,7 @@ namespace ControleEquipamentos.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public DateTime Nascimento { get; set; }
-        public TipoPessoa TipoPessoa { get; set; }
+        public TipoPessoa Tipo { get; set; }
         public string Usuario { get; set; }
         public string Cpf { get; set; }
         public bool Admin { get; set; }

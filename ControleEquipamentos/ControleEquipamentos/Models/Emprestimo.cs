@@ -19,8 +19,8 @@ namespace ControleEquipamentos.Models
         public DateTime DataEmprestimo { get; set; }
         public StatusEmprestimo StatusEmprestimo { get; set; }
         public DateTime DataPrevistaDevolucao { get; set; }
-        public string Operador { get; set; }
-        public string Usuario { get; set; }
+        public Pessoa Operador { get; set; }
+        public Pessoa Usuario { get; set; }
         public List<Equipamento> Equipamentos { get; set; } = new List<Equipamento>();
 
     }
