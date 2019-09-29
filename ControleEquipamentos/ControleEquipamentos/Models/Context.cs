@@ -13,7 +13,6 @@ namespace ControleEquipamentos.Models
 
         public DbSet<Emprestimo> Emprestimos { get; set; }
         public DbSet<Equipamento> Equipamentos { get; set; }
-        public DbSet<Marca> Marcas { get; set; }
         public DbSet<Ocorrencia> Ocorrencias { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
     }
