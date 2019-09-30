@@ -17,16 +17,9 @@ namespace ControleEquipamentos.Models
         public string Marca { get; set; }
         public string Modelo { get; set; }
         public int NumeroRegistro { get; set; }
-        public DateTime DataRegistro { get; set; }
-        public DateTime CriadoEm { get; set; }
+        public DateTime CriadoEm { get; set; } = DateTime.Now;
         public Pessoa Operador { get; set; }
-        public int Contador { get; set; }
-        public int Registro { get; set; }
+        public int Contador { get; set; } = 0;
         public bool Inativo { get; set; }
-
-        public Equipamento()
-        {
-            CriadoEm = DateTime.Now;
-        }
     }
 }

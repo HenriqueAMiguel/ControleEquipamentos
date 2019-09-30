@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControleEquipamentos.Views"
         mc:Ignorable="d"
-        Title="CadastroEquipamento" Height="450" Width="800">
+        Title="Cadastro de Equipamento" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Cadastro de Equipamento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Descrição:" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="descricao" HorizontalAlignment="Left" Height="23" Margin="154,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Marca:" HorizontalAlignment="Left" Margin="10,86,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="marca" HorizontalAlignment="Left" Height="23" Margin="154,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Modelo:" HorizontalAlignment="Left" Margin="10,113,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="modelo" HorizontalAlignment="Left" Height="23" Margin="154,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Nº de Registro:" HorizontalAlignment="Left" Margin="10,141,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="numeroregistro" HorizontalAlignment="Left" Height="23" Margin="154,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Operador:" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cboOperador" HorizontalAlignment="Left" Margin="154,172,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="199,199,0,0" VerticalAlignment="Top" Width="75" Click="Cadastrar"/>
+
     </Grid>
 </Window>

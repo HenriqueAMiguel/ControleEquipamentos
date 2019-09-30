@@ -11,13 +11,27 @@ namespace ControleEquipamentos.DAL
     {
         private static Context ctx = SingletonContext.GetInstance();
 
-        public static void CadastrarPessoa(Pessoa p)
+        public static bool CadastrarPessoa(Pessoa p)
         {
             ctx.Pessoas.Add(p);
-            ctx.SaveChanges();
+            var retorno = ctx.SaveChanges();
+
+            if(retorno > 0)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public static Pessoa ObterPessoa(int id)
+        {
+            return ctx.Pessoas.Find(id);
         }
 
         public static List<Pessoa> ListarPessoas() => ctx.Pessoas.ToList();
+
+        public static List<Pessoa> ListarOperadores() => ctx.Pessoas.Where(p => p.Admin == true).ToList();
 
         public static List<Pessoa> ListarUltimosCadastros(int quantidade)
         {

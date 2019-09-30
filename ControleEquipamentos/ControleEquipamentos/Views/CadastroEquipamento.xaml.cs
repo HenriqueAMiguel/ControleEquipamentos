@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ControleEquipamentos.DAL;
+using ControleEquipamentos.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,31 @@ namespace ControleEquipamentos.Views
         public CadastroEquipamento()
         {
             InitializeComponent();
+            cboOperador.ItemsSource = PessoaDAO.ListarOperadores();
+            cboOperador.DisplayMemberPath = "Nome";
+            cboOperador.SelectedValuePath = "Id";
+        }
+
+        private void Cadastrar(object sender, RoutedEventArgs e)
+        {
+            Equipamento eq = new Equipamento();
+            eq.Descricao = descricao.Text;
+            eq.Marca = marca.Text;
+            eq.Modelo = modelo.Text;
+            eq.NumeroRegistro = Convert.ToInt32(numeroregistro.Text);
+            Pessoa p = PessoaDAO.ObterPessoa(Convert.ToInt32(cboOperador.SelectedValue));
+            eq.Operador = p;
+
+            ///TODO: validar numero de registro
+
+            if (EquipamentoDAO.CadastrarEquipamento(eq))
+            {
+                MessageBox.Show("Equipamento salvo com sucesso!");
+            }
+            else
+            {
+                MessageBox.Show("Equipamento não salvo");
+            }
         }
     }
 }

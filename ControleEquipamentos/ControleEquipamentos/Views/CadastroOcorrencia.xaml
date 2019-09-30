@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="CadastroOcorrencia" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Descrição:" HorizontalAlignment="Left" Margin="60,43,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="descricao" HorizontalAlignment="Left" Height="23" Margin="175,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Data Ocorrencia:" HorizontalAlignment="Left" Margin="60,71,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="dataocorrencia" HorizontalAlignment="Left" Margin="175,80,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Equipamento:" HorizontalAlignment="Left" Margin="60,104,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cboEquipamento"  HorizontalAlignment="Left" Margin="175,108,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Ordem de Serviço:" HorizontalAlignment="Left" Margin="60,131,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="ordemservico" HorizontalAlignment="Left" Height="23" Margin="175,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Data Ocorrencia:" HorizontalAlignment="Left" Margin="60,71,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dataocorrencia_Copy" HorizontalAlignment="Left" Margin="175,80,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Previsão de Retorno" HorizontalAlignment="Left" Margin="60,169,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="previsaoRetorno" HorizontalAlignment="Left" Margin="175,178,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="175,219,0,0" VerticalAlignment="Top" Width="120" Click="Cadastrar"/>
+
     </Grid>
 </Window>
