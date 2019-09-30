@@ -73,6 +73,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DAL\EmprestimoDAO.cs" />
+    <Compile Include="DAL\EquipamentoDAO.cs" />
+    <Compile Include="DAL\OcorrenciaDAO.cs" />
     <Compile Include="DAL\SingletonContext.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -85,7 +88,6 @@
     <Compile Include="Models\Enums\StatusEmprestimo.cs" />
     <Compile Include="Models\Enums\TipoPessoa.cs" />
     <Compile Include="Models\Equipamento.cs" />
-    <Compile Include="Models\Marca.cs" />
     <Compile Include="Models\Ocorrencia.cs" />
     <Compile Include="Models\Pessoa.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

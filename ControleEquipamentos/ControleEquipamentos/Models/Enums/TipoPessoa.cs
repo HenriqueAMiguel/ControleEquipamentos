@@ -8,6 +8,6 @@ namespace ControleEquipamentos.Models.Enums
 {
     enum TipoPessoa : int
     {
-        Fisica, Juridica
+        Operador, Usuario
     }
 }
