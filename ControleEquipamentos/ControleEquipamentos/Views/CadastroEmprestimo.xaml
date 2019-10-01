@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="CadastroEmprestimo" Height="450" Width="800">
     <Grid>
-        
+        <Label Content="Realizar Empréstimo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Data do Emprestimo:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="dataEmprestimo"  HorizontalAlignment="Left" Margin="216,41,0,0" VerticalAlignment="Top"/>
+        <Label Content="Data Prevista Para Devolução:" HorizontalAlignment="Left" Margin="8,72,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dataPrevDevol"  HorizontalAlignment="Left" Margin="216,70,0,0" VerticalAlignment="Top"/>
+        <Label Content="Data Devolução:" HorizontalAlignment="Left" Margin="8,101,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dataDevolucao"  HorizontalAlignment="Left" Margin="216,99,0,0" VerticalAlignment="Top"/>
+        <Label Content="Operador:" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboOperador" HorizontalAlignment="Left" Margin="216,136,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Usuário:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboUsuario" HorizontalAlignment="Left" Margin="216,163,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Equipamento:" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboEquipamento" HorizontalAlignment="Left" Margin="216,190,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="256,238,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0.6" Click="Cadastrar" />
+
     </Grid>
 </Window>

@@ -11,10 +11,19 @@ namespace ControleEquipamentos.DAL
     {
         private static Context ctx = SingletonContext.GetInstance();
 
-        public static void CadastrarEmprestimo(Emprestimo emp)
+        public static bool CadastrarEmprestimo(Emprestimo emp)
         {
             ctx.Emprestimos.Add(emp);
-            ctx.SaveChanges();
+            var retorno = ctx.SaveChanges();
+
+            if (retorno > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static List<Emprestimo> ListarEmprestimos() => ctx.Emprestimos.ToList();
