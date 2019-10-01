@@ -60,6 +60,18 @@ namespace ControleEquipamentos.Views
             cadastroEmprestimo.ShowDialog();
         }
 
-        
+        private void Relatorio_Emprestimos(object sender, RoutedEventArgs e)
+        {
+            RelatorioEmprestimos relatorioEmprestimos = new RelatorioEmprestimos();
+            relatorioEmprestimos.ShowDialog();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (MessageBox.Show("Deseja fechar a janela?", "Controle de Equipamentos", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.No)
+            {
+                e.Cancel = true;
+            }
+        }
     }
 }

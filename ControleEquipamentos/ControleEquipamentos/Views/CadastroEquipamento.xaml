@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControleEquipamentos.Views"
         mc:Ignorable="d"
-        Title="Cadastro de Equipamento" Height="450" Width="800">
+        Title="Cadastro de Equipamento" Height="522.4" Width="554.4">
     <Grid>
         <Label Content="Cadastro de Equipamento" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Descrição:" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top"/>
@@ -19,6 +19,10 @@
         <Label Content="Operador:" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top"/>
         <ComboBox Name="cboOperador" HorizontalAlignment="Left" Margin="154,172,0,0" VerticalAlignment="Top" Width="120"/>
         <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="199,199,0,0" VerticalAlignment="Top" Width="75" Click="Cadastrar"/>
+        <TextBox x:Name="id" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="154,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="tabelaEquipamento" HorizontalAlignment="Left" Height="201" Margin="10,257,0,0" VerticalAlignment="Top" Width="515"/>
+        <Button Name="atualizar" Content="Atualizar" Visibility="Hidden" HorizontalAlignment="Left" Margin="199,199,0,0" VerticalAlignment="Top" Width="75" Click="Atualizar"/>
+        <Button x:Name="cancelarAtualizar" Visibility="Hidden" Content="Cancelar Atualizar" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="109" Click="Cancelar"/>
 
     </Grid>
 </Window>
