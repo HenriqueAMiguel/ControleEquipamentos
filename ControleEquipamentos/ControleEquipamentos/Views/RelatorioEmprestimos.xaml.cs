@@ -23,5 +23,10 @@ namespace ControleEquipamentos.Views
         {
             InitializeComponent();
         }
+
+        private void Pesquisar(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
