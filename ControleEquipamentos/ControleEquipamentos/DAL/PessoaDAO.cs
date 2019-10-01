@@ -46,7 +46,7 @@ namespace ControleEquipamentos.DAL
         public static List<Pessoa> ListarPessoas() => ctx.Pessoas.ToList();
 
         public static List<Pessoa> ListarOperadores() => ctx.Pessoas.Where(p => p.Admin == true).ToList();
-
+        public static List<Pessoa> ListarUsuarios() => ctx.Pessoas.Where(p => p.Admin == false).ToList();
         //TODO: Metodo para Listar apenas usuarios
 
         public static List<Pessoa> ListarUltimosCadastros(int quantidade)

@@ -81,6 +81,10 @@
     <Compile Include="Migrations\201909302320114_Alteracao0102.designer.cs">
       <DependentUpon>201909302320114_Alteracao0102.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910011819472_Inicio1.cs" />
+    <Compile Include="Migrations\201910011819472_Inicio1.designer.cs">
+      <DependentUpon>201910011819472_Inicio1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\CadastroEmprestimo.xaml.cs">
       <DependentUpon>CadastroEmprestimo.xaml</DependentUpon>
@@ -173,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201909302320114_Alteracao0102.resx">
       <DependentUpon>201909302320114_Alteracao0102.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910011819472_Inicio1.resx">
+      <DependentUpon>201910011819472_Inicio1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
