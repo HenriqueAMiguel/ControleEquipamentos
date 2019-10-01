@@ -37,8 +37,7 @@ namespace ControleEquipamentos.Views
             Equipamento eq = EquipamentoDAO.ObterEquipamento(Convert.ToInt32(cboEquipamento.SelectedValue));
             o.Equipamento = eq;
             o.OrdemDeServico = Convert.ToInt32(ordemservico.Text);
-            o.PrevisaoRetorno = previsaoRetorno.SelectedDate;
-            
+            o.PrevisaoRetorno = previsaoRetorno.SelectedDate;            
 
             if (OcorrenciaDAO.CadastrarOcorrencia(o))
             {
@@ -49,5 +48,8 @@ namespace ControleEquipamentos.Views
                 MessageBox.Show("Ocorrência não Cadastrada");
             }
         }
+
+        //TODO: Metodo para editar e excluir
+        //TODO: Campo status para saber se finalizou a ocorrencia
     }
 }

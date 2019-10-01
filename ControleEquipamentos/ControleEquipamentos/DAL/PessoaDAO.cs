@@ -33,6 +33,8 @@ namespace ControleEquipamentos.DAL
 
         public static List<Pessoa> ListarOperadores() => ctx.Pessoas.Where(p => p.Admin == true).ToList();
 
+        //TODO: Metodo para Listar apenas usuarios
+
         public static List<Pessoa> ListarUltimosCadastros(int quantidade)
         {
             return ctx.Pessoas.OrderByDescending(p => p.CriadoEm).Take(10).ToList();

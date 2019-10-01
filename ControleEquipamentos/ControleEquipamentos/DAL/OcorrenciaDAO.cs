@@ -26,7 +26,7 @@ namespace ControleEquipamentos.DAL
             }
         }
 
-
+        //TODO: Quando criar o campo Status da Ocorrencia, fazer metodo para Listar apenas as ocorrencias ativas
         public static List<Ocorrencia> ListarOcorrencias() => ctx.Ocorrencias.ToList();
     }
 }
