@@ -24,6 +24,7 @@ namespace ControleEquipamentos.Views
         public CadastroEquipamento()
         {
             InitializeComponent();
+            CarregarEquipamentos();
             cboOperador.ItemsSource = PessoaDAO.ListarOperadores();
             cboOperador.DisplayMemberPath = "Nome";
             cboOperador.SelectedValuePath = "Id";
@@ -44,11 +45,28 @@ namespace ControleEquipamentos.Views
             if (EquipamentoDAO.CadastrarEquipamento(eq))
             {
                 MessageBox.Show("Equipamento salvo com sucesso!");
+                LimparFormulario();
+                CarregarEquipamentos();
             }
             else
             {
                 MessageBox.Show("Equipamento não salvo");
             }
+        }
+
+        private void LimparFormulario()
+        {
+            id.Clear();
+            descricao.Clear();
+            marca.Clear();
+            modelo.Clear();
+            numeroregistro.Clear();
+        }
+
+        private void CarregarEquipamentos()
+        {
+            List<Equipamento> equipamentos = EquipamentoDAO.ListarEquipamento();
+            tabelaEquipamento.ItemsSource = equipamentos;
         }
 
         //TODO: Metodo para editar e excluir
