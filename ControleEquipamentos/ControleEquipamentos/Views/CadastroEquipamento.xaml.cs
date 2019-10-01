@@ -56,7 +56,21 @@ namespace ControleEquipamentos.Views
 
         private void Atualizar(object sender, RoutedEventArgs e)
         {
+            Equipamento eq = EquipamentoDAO.ObterEquipamento(Convert.ToInt32(id.Text));
+            eq.Descricao = descricao.Text;
+            eq.Marca = marca.Text;
+            eq.Modelo = modelo.Text;
+            eq.NumeroRegistro = Convert.ToInt32(numeroregistro.Text);
 
+            if (EquipamentoDAO.AtualizarEquipamento(eq))
+            {
+                MessageBox.Show("Atualizado com sucesso!");
+                LimparFormulario();
+            }
+            else
+            {
+                MessageBox.Show("Equipamento não atualizado!");
+            }
         }
 
 
@@ -77,9 +91,20 @@ namespace ControleEquipamentos.Views
 
         private void Cancelar(object sender, RoutedEventArgs e)
         {
-
+            cancelarAtualizar.Visibility = Visibility.Hidden;
+            atualizar.Visibility = Visibility.Hidden;
+            cadastrar.Visibility = Visibility.Visible;
         }
 
-        //TODO: Metodo para editar e excluir
+        private void tabelaEquipamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Equipamento eq = EquipamentoDAO.ObterEquipamento(Convert.ToInt32(id.Text));
+
+            cadastrar.Visibility = Visibility.Hidden;
+            atualizar.Visibility = Visibility.Visible;
+            cancelarAtualizar.Visibility = Visibility.Visible;
+        }
+
+        //TODO: Metodo para excluir
     }
 }
