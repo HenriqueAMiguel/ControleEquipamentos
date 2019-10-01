@@ -14,11 +14,10 @@ namespace ControleEquipamentos.Models
     {
         [Key]
         public int Id { get; set; }
-        public StatusEmprestimo Status { get; set; }
-        public DateTime DataDevolucao { get; set; }
-        public DateTime DataEmprestimo { get; set; }
-        public StatusEmprestimo StatusEmprestimo { get; set; }
-        public DateTime DataPrevistaDevolucao { get; set; }
+        //public StatusEmprestimo Status { get; set; }
+        public DateTime? DataDevolucao { get; set; }
+        public DateTime? DataEmprestimo { get; set; }
+        public DateTime? DataPrevistaDevolucao { get; set; }
         public Pessoa Operador { get; set; }
         public Pessoa Usuario { get; set; }
         public List<Equipamento> Equipamentos { get; set; } = new List<Equipamento>();

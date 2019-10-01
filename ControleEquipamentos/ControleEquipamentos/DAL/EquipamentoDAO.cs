@@ -11,10 +11,19 @@ namespace ControleEquipamentos.DAL
     {
         private static Context ctx = SingletonContext.GetInstance();
 
-        public static void CadastrarEquipamento(Equipamento e)
+        public static bool CadastrarEquipamento(Equipamento e)
         {
             ctx.Equipamentos.Add(e);
-            ctx.SaveChanges();
+            var retorno = ctx.SaveChanges();
+
+            if(retorno > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public static void RemoverEquipamento(Equipamento e)
@@ -23,6 +32,11 @@ namespace ControleEquipamentos.DAL
             ctx.SaveChanges();
         }
 
-        public static List<Equipamento> ListarEquipamento() => ctx.Equipamentos.Include("Emprestimo").ToList();
+        public static List<Equipamento> ListarEquipamento() => ctx.Equipamentos.ToList();
+
+        public static Equipamento  ObterEquipamento(int id)
+        {
+            return ctx.Equipamentos.Find(id);
+        }
     }
 }

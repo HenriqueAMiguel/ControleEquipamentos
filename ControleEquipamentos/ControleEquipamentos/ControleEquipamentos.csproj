@@ -65,10 +65,38 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
+    <Compile Include="Migrations\201909302009019_InitialCreate.cs" />
+    <Compile Include="Migrations\201909302009019_InitialCreate.designer.cs">
+      <DependentUpon>201909302009019_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909302207444_Startup.cs" />
+    <Compile Include="Migrations\201909302207444_Startup.designer.cs">
+      <DependentUpon>201909302207444_Startup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909302239038_Alteracao0101.cs" />
+    <Compile Include="Migrations\201909302239038_Alteracao0101.designer.cs">
+      <DependentUpon>201909302239038_Alteracao0101.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201909302320114_Alteracao0102.cs" />
+    <Compile Include="Migrations\201909302320114_Alteracao0102.designer.cs">
+      <DependentUpon>201909302320114_Alteracao0102.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Views\CadastroEmprestimo.xaml.cs">
+      <DependentUpon>CadastroEmprestimo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CadastroEquipamento.xaml.cs">
+      <DependentUpon>CadastroEquipamento.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CadastroOcorrencia.xaml.cs">
+      <DependentUpon>CadastroOcorrencia.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CadastroUsuario.xaml.cs">
+      <DependentUpon>CadastroUsuario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -76,11 +104,35 @@
     <Compile Include="DAL\EmprestimoDAO.cs" />
     <Compile Include="DAL\EquipamentoDAO.cs" />
     <Compile Include="DAL\OcorrenciaDAO.cs" />
+    <Compile Include="DAL\PessoaDAO.cs" />
     <Compile Include="DAL\SingletonContext.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="Views\Menu.xaml.cs">
+      <DependentUpon>Menu.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\CadastroEmprestimo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastroEquipamento.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastroOcorrencia.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CadastroUsuario.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Context.cs" />
@@ -103,6 +155,18 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201909302009019_InitialCreate.resx">
+      <DependentUpon>201909302009019_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909302207444_Startup.resx">
+      <DependentUpon>201909302207444_Startup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909302239038_Alteracao0101.resx">
+      <DependentUpon>201909302239038_Alteracao0101.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201909302320114_Alteracao0102.resx">
+      <DependentUpon>201909302320114_Alteracao0102.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -117,9 +181,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Auxiliar\TutorialEntity.txt" />
   </ItemGroup>
