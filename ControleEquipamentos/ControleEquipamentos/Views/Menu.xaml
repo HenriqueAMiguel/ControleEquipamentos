@@ -1,0 +1,27 @@
+﻿<Window x:Class="ControleEquipamentos.Views.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ControleEquipamentos.Views"
+        mc:Ignorable="d"
+        Title="Menu" Height="450" Width="800" Closing="Window_Closing">
+    <Grid>
+        <Menu HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="320">
+            <MenuItem Header="Arquivo" Height="50" Width="100">
+                <MenuItem Header="_Sair" HorizontalAlignment="Left" Height="50" Width="139" Click="Sair"/>
+            </MenuItem>
+            <MenuItem Header="Cadastrar" Height="50" Width="100">
+                <MenuItem Header="Usuário" HorizontalAlignment="Left" Height="50" Width="170" Click="Cadastrar_Usuario"/>
+                <MenuItem Header="Equipamento" HorizontalAlignment="Left" Height="50" Width="170" Click="Cadastrar_Equipamento"/>
+                <MenuItem Header="Ocorrência" HorizontalAlignment="Left" Height="50" Width="170" Click="Cadastrar_Ocorrencia"/>
+                <MenuItem Header="Empréstimo" HorizontalAlignment="Left" Height="50" Width="170" Click="Cadastrar_Emprestimo"/>
+            </MenuItem>
+            <MenuItem Header="Relatórios" Height="50" Width="100">
+                <MenuItem Header="Emprestimos" HorizontalAlignment="Left" Height="50" Width="170" Click="Relatorio_Emprestimos"/>
+            </MenuItem>
+        </Menu>
+        <DataGrid x:Name="tabelaEmprestimos" HorizontalAlignment="Left" Height="203" Margin="10,103,0,0" VerticalAlignment="Top" Width="774"/>
+
+    </Grid>
+</Window>

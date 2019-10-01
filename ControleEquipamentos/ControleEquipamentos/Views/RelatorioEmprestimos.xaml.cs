@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ControleEquipamentos
+namespace ControleEquipamentos.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RelatorioEmprestimos.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RelatorioEmprestimos : Window
     {
-        public MainWindow()
+        public RelatorioEmprestimos()
         {
             InitializeComponent();
         }
