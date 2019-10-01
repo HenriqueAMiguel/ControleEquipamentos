@@ -54,6 +54,12 @@ namespace ControleEquipamentos.Views
             }
         }
 
+        private void Atualizar(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+
         private void LimparFormulario()
         {
             id.Clear();
@@ -67,6 +73,11 @@ namespace ControleEquipamentos.Views
         {
             List<Equipamento> equipamentos = EquipamentoDAO.ListarEquipamento();
             tabelaEquipamento.ItemsSource = equipamentos;
+        }
+
+        private void Cancelar(object sender, RoutedEventArgs e)
+        {
+
         }
 
         //TODO: Metodo para editar e excluir
