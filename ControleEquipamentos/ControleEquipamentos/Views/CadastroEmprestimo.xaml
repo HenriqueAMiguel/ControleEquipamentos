@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControleEquipamentos.Views"
         mc:Ignorable="d"
-        Title="CadastroEmprestimo" Height="502" Width="800">
+        Title="Cadastro de Empréstimos" Height="502" Width="1083">
     <Grid>
         <Label Content="Realizar Empréstimo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Data do Emprestimo:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
@@ -24,7 +24,12 @@
         <CheckBox x:Name="devolvido" Content="Devolvido" Visibility="Hidden" HorizontalAlignment="Left" Margin="216,226,0,0" VerticalAlignment="Top"/>
         <DataGrid x:Name="tabelaEquipamentos" HorizontalAlignment="Left" Height="231" Margin="352,41,0,0" VerticalAlignment="Top" Width="432"/>
         <Button Content="Adicionar Equipamento" HorizontalAlignment="Left" Margin="207,224,0,0" VerticalAlignment="Top" Width="129" Click="addEquipamento" />
-        <DataGrid x:Name="tabelaEmprestimos" HorizontalAlignment="Left" Height="151" Margin="10,312,0,0" VerticalAlignment="Top" Width="776" SelectionChanged="tabelaEmprestimos_SelectionChanged"/>
+        <DataGrid AutoGenerateColumns="False" x:Name="tabelaEmprestimos" HorizontalAlignment="Left" Height="151" Margin="10,312,0,0" VerticalAlignment="Top" Width="1055" SelectionChanged="tabelaEmprestimos_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Nº"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Usuario.Nome}" Header="Usuário"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Visibility="Hidden" x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="181,253,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0.6" Click="Atualizar" />
         <TextBox x:Name="id" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="94,249,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lbQuantidade" Content="Total: 0" HorizontalAlignment="Left" Margin="706,281,0,0" VerticalAlignment="Top"/>

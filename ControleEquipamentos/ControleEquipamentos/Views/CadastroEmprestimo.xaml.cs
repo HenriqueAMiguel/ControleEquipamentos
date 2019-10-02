@@ -22,7 +22,6 @@ namespace ControleEquipamentos.Views
     public partial class CadastroEmprestimo : Window
     {
         private List<Equipamento> list = new List<Equipamento>();
-
         public CadastroEmprestimo()
         {
             InitializeComponent();
@@ -51,7 +50,7 @@ namespace ControleEquipamentos.Views
             Pessoa p = PessoaDAO.ObterPessoa(Convert.ToInt32(cboOperador.SelectedValue));
             emp.Operador = p;
 
-            Pessoa pe = PessoaDAO.ObterPessoa(Convert.ToInt32(cboOperador.SelectedValue));
+            Pessoa pe = PessoaDAO.ObterPessoa(Convert.ToInt32(cboUsuario.SelectedValue));
             emp.Usuario = pe;
             emp.Equipamentos = list;
 
@@ -64,6 +63,36 @@ namespace ControleEquipamentos.Views
             else
             {
                 MessageBox.Show("Empréstimo não realizado");
+            }
+        }
+
+        private void Atualizar(object sender, RoutedEventArgs e)
+        {
+            if (!dataDevolucao.SelectedDate.HasValue)
+            {
+                MessageBox.Show("Necessário preencher uma data de devolução");
+                return;
+            }
+
+            Emprestimo emp = EmprestimoDAO.BuscarEmprestimo(Convert.ToInt32(id.Text));
+            emp.DataDevolucao = dataDevolucao.SelectedDate;
+            emp.StatusDoEmprestimo = true;
+            var retorno = EmprestimoDAO.Atualizar(emp);
+
+            if (retorno)
+            {
+                MessageBox.Show("Empréstimo atualizado");
+                LimparFormulario();
+                btnCadastrar.Visibility = Visibility.Visible;
+                btnAtualizar.Visibility = Visibility.Hidden;
+                dataDevolucao.Visibility = Visibility.Hidden;
+                lbDtDevolucao.Visibility = Visibility.Hidden;
+
+                CarregarEmprestimos();
+            }
+            else
+            {
+                MessageBox.Show("Empréstimo não atualizado");
             }
         }
 
@@ -107,39 +136,11 @@ namespace ControleEquipamentos.Views
 
         private void CarregarEmprestimos()
         {
-            List<Emprestimo> emprestimos = EmprestimoDAO.ListarEmprestimos();
+            List<Emprestimo> emprestimos = EmprestimoDAO.ListarEmprestimosComEquipamento();
             tabelaEmprestimos.ItemsSource = emprestimos;
         }
 
-        private void Atualizar(object sender, RoutedEventArgs e)
-        {
-            if (!dataDevolucao.SelectedDate.HasValue)
-            {
-                MessageBox.Show("Necessário preencher uma data de devolução");
-                return;
-            }
-
-            Emprestimo emp = EmprestimoDAO.BuscarEmprestimo(Convert.ToInt32(id.Text));
-            emp.DataDevolucao = dataDevolucao.SelectedDate;
-            emp.StatusDoEmprestimo = true;
-            var retorno = EmprestimoDAO.Atualizar(emp);
-
-            if (retorno)
-            {
-                MessageBox.Show("Empréstimo atualizado");
-                LimparFormulario();
-                btnCadastrar.Visibility = Visibility.Visible;
-                btnAtualizar.Visibility = Visibility.Hidden;
-                dataDevolucao.Visibility = Visibility.Hidden;
-                lbDtDevolucao.Visibility = Visibility.Hidden;
-
-                CarregarEmprestimos();
-            }
-            else
-            {
-                MessageBox.Show("Empréstimo não atualizado");
-            }
-        }
+       
 
         private void LimparFormulario()
         {
@@ -150,10 +151,6 @@ namespace ControleEquipamentos.Views
             cboUsuario.SelectedItem = null;
             tabelaEquipamentos.ItemsSource = new List<Equipamento>();
             devolvido.IsChecked = false;
-        }
-        private void ContarItens()
-        {
-            lbQuantidade.Content = "Total: " + list.Count;
         }
     }
 }
