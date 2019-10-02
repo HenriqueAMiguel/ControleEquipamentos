@@ -37,7 +37,7 @@ namespace ControleEquipamentos.DAL
                 dataFim = DateTime.Now;
             }                
 
-            List<Emprestimo> lista = ctx.Emprestimos.Include("Equipamento").Where(c => c.DataEmprestimo <= dataFim).ToList();
+            List<Emprestimo> lista = ctx.Emprestimos.Include("Equipamentos").Where(c => c.DataEmprestimo <= dataFim).ToList();
 
             if (dataInicio != null)
                 lista = lista.Where(c => c.DataEmprestimo >= dataInicio).ToList();
@@ -67,6 +67,22 @@ namespace ControleEquipamentos.DAL
             }
 
             return lista;
+        }
+
+        public static List<Emprestimo> ListarEmprestimosComEquipamento() => ctx.Emprestimos.Include("Equipamentos")
+                                       .Where(x => !x.StatusDoEmprestimo).ToList();
+
+        public static Emprestimo BuscarEmprestimo(int id) => ctx.Emprestimos.Find(id);
+
+        public static bool Atualizar(Emprestimo e)
+        {
+            ctx.Entry(e).State = System.Data.Entity.EntityState.Modified;
+            var retorno = ctx.SaveChanges();
+            if(retorno > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
