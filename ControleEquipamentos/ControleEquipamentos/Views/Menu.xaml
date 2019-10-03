@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControleEquipamentos.Views"
         mc:Ignorable="d"
-        Title="Menu" Height="450" Width="800" Closing="Window_Closing">
+        Title="Menu" Height="360" Width="671" Closing="Window_Closing">
     <Grid>
         <Menu HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="320">
             <MenuItem Header="Arquivo" Height="50" Width="100">
@@ -21,7 +21,18 @@
                 <MenuItem Header="Emprestimos" HorizontalAlignment="Left" Height="50" Width="170" Click="Relatorio_Emprestimos"/>
             </MenuItem>
         </Menu>
-        <DataGrid x:Name="tabelaEmprestimos" HorizontalAlignment="Left" Height="203" Margin="10,103,0,0" VerticalAlignment="Top" Width="774"/>
+        <DataGrid AutoGenerateColumns="False" x:Name="tabelaEmprestimos" HorizontalAlignment="Left" Height="203" Margin="10,103,0,0" VerticalAlignment="Top" Width="643">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Nº"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Usuario.Nome}" Header="Usuário"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Operador.Nome}" Header="Operador"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataEmprestimo, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Criação"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataPrevistaDevolucao, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Previsão de Devolução"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataDevolucao, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Devolvido"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding StatusDoEmprestimo}" Header="Devolvido?"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Últimos 10 empréstimos" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
     </Grid>
 </Window>

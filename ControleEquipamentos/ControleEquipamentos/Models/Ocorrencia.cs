@@ -15,8 +15,10 @@ namespace ControleEquipamentos.Models
         public int Id { get; set; }
         public string Descricao { get; set; }
         public DateTime? DataOcorrencia { get; set; }
+        public DateTime? DataDevolucao { get; set; }
         public Equipamento Equipamento { get; set; }
         public int OrdemDeServico { get; set; }
         public DateTime? PrevisaoRetorno { get; set; }
+        public bool Finalizado { get; set; }
     }
 }

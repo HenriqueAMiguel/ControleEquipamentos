@@ -5,24 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControleEquipamentos.Views"
         mc:Ignorable="d"
-        Title="RelatorioEmprestimos" Height="506" Width="800">
+        Title="Relatorio de Empréstimos" Height="537.333" Width="800">
     <Grid>
-        <Label Content="Usuario" HorizontalAlignment="Left" Margin="44,11,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboUsuario" HorizontalAlignment="Left" Margin="242,13,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Operador" HorizontalAlignment="Left" Margin="44,38,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboOperador" HorizontalAlignment="Left" Margin="242,40,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Data Inicio do Emprestimo" HorizontalAlignment="Left" Margin="44,69,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dtInicio" HorizontalAlignment="Left" Margin="242,69,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Data Final do Emprestimo" HorizontalAlignment="Left" Margin="44,98,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dtFim" HorizontalAlignment="Left" Margin="242,98,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Data  inicio prevista de Devolução" HorizontalAlignment="Left" Margin="44,128,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dtIniDev" HorizontalAlignment="Left" Margin="242,128,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Data Final prevista de Devolução" HorizontalAlignment="Left" Margin="44,157,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dtFimDev" HorizontalAlignment="Left" Margin="242,157,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Equipamento" HorizontalAlignment="Left" Margin="44,184,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboEquipamento" HorizontalAlignment="Left" Margin="242,186,0,0" VerticalAlignment="Top" Width="120"/>
-        <DataGrid HorizontalAlignment="Left" Height="205" Margin="44,260,0,0" VerticalAlignment="Top" Width="569"/>
-        <Button x:Name="btnPesquisar" Content="Pesquisar" HorizontalAlignment="Left" Margin="242,226,0,0" VerticalAlignment="Top" Width="120" Click="Pesquisar"/>
+        <Label Content="Usuario:" HorizontalAlignment="Left" Margin="44,98,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboUsuario" HorizontalAlignment="Left" Margin="205,100,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Operador:" HorizontalAlignment="Left" Margin="44,125,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboOperador" HorizontalAlignment="Left" Margin="205,127,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Criação do Emprestimo de:" HorizontalAlignment="Left" Margin="44,40,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dtInicio" HorizontalAlignment="Left" Margin="205,40,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Criação do Emprestimo até:" HorizontalAlignment="Left" Margin="44,69,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dtFim" HorizontalAlignment="Left" Margin="205,69,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Previsão de Devolução de:" HorizontalAlignment="Left" Margin="437,40,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dtIniDev" HorizontalAlignment="Left" Margin="591,40,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Previsão de Devolução até:" HorizontalAlignment="Left" Margin="437,69,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dtFimDev" HorizontalAlignment="Left" Margin="591,69,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Equipamento:" HorizontalAlignment="Left" Margin="44,156,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboEquipamento" HorizontalAlignment="Left" Margin="205,156,0,0" VerticalAlignment="Top" Width="120"/>
+        <DataGrid x:Name="tabelaEmprestimos" HorizontalAlignment="Left" Height="267" Margin="10,229,0,0" VerticalAlignment="Top" Width="772"/>
+        <Button x:Name="btnPesquisar" Content="Pesquisar" HorizontalAlignment="Left" Margin="591,156,0,0" VerticalAlignment="Top" Width="120" Click="Pesquisar"/>
+        <CheckBox Name="checkExcluirDevolvidos" Content="Excluir Devolvidos" HorizontalAlignment="Left" Margin="437,104,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="checkApenasAtrasados" Content="Apenas Atrasados" HorizontalAlignment="Left" Margin="437,125,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnLimpar" Content="Limpar Formulário" HorizontalAlignment="Left" Margin="437,156,0,0" VerticalAlignment="Top" Width="120" Click="Pesquisar"/>
+        <Label Content="Resultado da Pesquisa" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
     </Grid>
 </Window>

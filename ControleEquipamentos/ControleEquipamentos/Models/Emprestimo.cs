@@ -14,7 +14,7 @@ namespace ControleEquipamentos.Models
     {
         [Key]
         public int Id { get; set; }
-        //public StatusEmprestimo Status { get; set; }
+        public bool StatusDoEmprestimo { get; set; } = false;
         public DateTime? DataDevolucao { get; set; }
         public DateTime? DataEmprestimo { get; set; }
         public DateTime? DataPrevistaDevolucao { get; set; }
