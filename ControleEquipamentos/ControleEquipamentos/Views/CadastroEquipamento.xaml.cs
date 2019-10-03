@@ -61,6 +61,8 @@ namespace ControleEquipamentos.Views
             eq.Marca = marca.Text;
             eq.Modelo = modelo.Text;
             eq.NumeroRegistro = Convert.ToInt32(numeroregistro.Text);
+            if (Inativo.IsChecked == true)
+                eq.Inativo = true;
 
             if (EquipamentoDAO.AtualizarEquipamento(eq))
             {

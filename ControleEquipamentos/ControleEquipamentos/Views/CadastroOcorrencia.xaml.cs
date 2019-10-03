@@ -61,10 +61,10 @@ namespace ControleEquipamentos.Views
         private void LimparFormulario()
         {
             descricao.Clear();
-            dataocorrencia = null;
+            dataocorrencia.SelectedDate = null;
             cboEquipamento.SelectedValue = null;
             ordemservico.Clear();
-            dataDevolvido = null;
+            dataDevolvido.SelectedDate = null;
             previsaoRetorno = null;
         }
 
@@ -78,6 +78,7 @@ namespace ControleEquipamentos.Views
             {
                 MessageBox.Show("Ocorrência atualizada.");
                 LimparFormulario();
+                CarregarOcorrencias();
                 btnCadastrar.Visibility = Visibility.Visible;
 
                 lbDataDevolvido.Visibility = Visibility.Hidden;
@@ -113,7 +114,7 @@ namespace ControleEquipamentos.Views
             btnCancelarAtualizar.Visibility = Visibility.Visible;
 
             Ocorrencia oc = (Ocorrencia)tabelaOcorrencias.SelectedItem;
-
+            id.Text = oc.Id.ToString();
             descricao.Text = oc.Descricao;
             dataocorrencia.SelectedDate = oc.DataOcorrencia;
             cboEquipamento.SelectedValue = oc.Equipamento.Id;
