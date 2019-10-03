@@ -21,7 +21,17 @@
         <DatePicker x:Name="dtFimDev" HorizontalAlignment="Left" Margin="591,69,0,0" VerticalAlignment="Top" Width="120"/>
         <Label Content="Equipamento:" HorizontalAlignment="Left" Margin="44,156,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cboEquipamento" HorizontalAlignment="Left" Margin="205,156,0,0" VerticalAlignment="Top" Width="120"/>
-        <DataGrid x:Name="tabelaEmprestimos" HorizontalAlignment="Left" Height="267" Margin="10,229,0,0" VerticalAlignment="Top" Width="772"/>
+        <DataGrid AutoGenerateColumns="False" ColumnWidth="100" x:Name="tabelaEmprestimos" HorizontalAlignment="Left" Height="267" Margin="10,229,0,0" VerticalAlignment="Top" Width="772">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Nº"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Usuario.Nome}" Header="Usuário"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Operador.Nome}" Header="Operador"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataEmprestimo, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Criação"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataPrevistaDevolucao, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Previsão de Devolução"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataDevolucao, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Devolvido"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding StatusDoEmprestimo}" Header="Devolvido?"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button x:Name="btnPesquisar" Content="Pesquisar" HorizontalAlignment="Left" Margin="591,156,0,0" VerticalAlignment="Top" Width="120" Click="Pesquisar"/>
         <CheckBox Name="checkExcluirDevolvidos" Content="Excluir Devolvidos" HorizontalAlignment="Left" Margin="437,104,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkApenasAtrasados" Content="Apenas Atrasados" HorizontalAlignment="Left" Margin="437,125,0,0" VerticalAlignment="Top"/>
