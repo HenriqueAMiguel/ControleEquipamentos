@@ -48,7 +48,7 @@ namespace ControleEquipamentos.DAL
             ctx.SaveChanges();
         }
 
-        public static List<Equipamento> ListarEquipamento() => ctx.Equipamentos.ToList();
+        public static List<Equipamento> ListarEquipamento() => ctx.Equipamentos.Include("Operador").ToList();
 
         public static Equipamento  ObterEquipamento(int id)
         {

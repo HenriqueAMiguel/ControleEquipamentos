@@ -136,7 +136,7 @@ namespace ControleEquipamentos.Views
 
         private void CarregarEmprestimos()
         {
-            List<Emprestimo> emprestimos = EmprestimoDAO.ListarEmprestimosComEquipamento();
+            List<Emprestimo> emprestimos = EmprestimoDAO.ListarEmprestimosComEquipamentoUsuarioOperador();
             tabelaEmprestimos.ItemsSource = emprestimos;
         }
 

@@ -96,6 +96,7 @@ namespace ControleEquipamentos.Views
             cancelarAtualizar.Visibility = Visibility.Hidden;
             atualizar.Visibility = Visibility.Hidden;
             cadastrar.Visibility = Visibility.Visible;
+            Inativo.Visibility = Visibility.Hidden;
         }
 
         private void tabelaEquipamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -110,8 +111,7 @@ namespace ControleEquipamentos.Views
             cadastrar.Visibility = Visibility.Hidden;
             atualizar.Visibility = Visibility.Visible;
             cancelarAtualizar.Visibility = Visibility.Visible;
+            Inativo.Visibility = Visibility.Visible;
         }
-
-        //TODO: Metodo para excluir
     }
 }

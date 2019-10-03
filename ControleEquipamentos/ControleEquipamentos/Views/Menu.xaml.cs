@@ -24,7 +24,7 @@ namespace ControleEquipamentos.Views
         public Menu()
         {
             InitializeComponent();
-            List<Emprestimo> emprestimos = EmprestimoDAO.ListarEmprestimos();
+            List<Emprestimo> emprestimos = EmprestimoDAO.ListarNumeroDeEmprestimos();
             tabelaEmprestimos.ItemsSource = emprestimos;
         }
 

@@ -20,9 +20,21 @@
         <ComboBox Name="cboOperador" HorizontalAlignment="Left" Margin="154,172,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="cadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="199,199,0,0" VerticalAlignment="Top" Width="75" Click="Cadastrar"/>
         <TextBox x:Name="id" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="154,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <DataGrid x:Name="tabelaEquipamento" HorizontalAlignment="Left" Height="201" Margin="10,257,0,0" VerticalAlignment="Top" Width="515" SelectionChanged="tabelaEquipamento_SelectionChanged"/>
+        <DataGrid AutoGenerateColumns="False" x:Name="tabelaEquipamento" HorizontalAlignment="Left" Height="201" Margin="10,257,0,0" VerticalAlignment="Top" Width="515" SelectionChanged="tabelaEquipamento_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Nº"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Descricao}" Header="Descrição"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding CriadoEm, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Cadastro"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Marca}" Header="Marca"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Modelo}" Header="Modelo"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding NumeroRegistro}" Header="Numero Registro"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Operador.Nome}" Header="Operador"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding Inativo}" Header="Inativo?"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button Name="atualizar" Content="Atualizar" Visibility="Hidden" HorizontalAlignment="Left" Margin="199,199,0,0" VerticalAlignment="Top" Width="75" Click="Atualizar"/>
         <Button x:Name="cancelarAtualizar" Visibility="Hidden" Content="Cancelar Atualizar" HorizontalAlignment="Left" Margin="10,200,0,0" VerticalAlignment="Top" Width="109" Click="Cancelar"/>
+        <CheckBox Name="Inativo" Visibility="Hidden" Content="Inativo" HorizontalAlignment="Left" Margin="199,224,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

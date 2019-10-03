@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControleEquipamentos.Views"
         mc:Ignorable="d"
-        Title="Cadastro de Usuario" Height="524.4" Width="747.2">
+        Title="Cadastro de Usuario" Height="524.4" Width="568.2">
     <Grid>
         <Label Content="Cadastro de Usuários" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="Nome:" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
@@ -19,11 +19,19 @@
         <CheckBox Name="administrador" Content="Administrador" HorizontalAlignment="Left" Margin="103,167,0,0" VerticalAlignment="Top"/>
         <Button Name="cadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="148,187,0,0" VerticalAlignment="Top" Width="75" Click="Cadastrar"/>
         <DatePicker Name="nascimento" HorizontalAlignment="Left" Margin="103,81,0,0" VerticalAlignment="Top" Width="120"/>
-        <DataGrid Name="tabelaUsuarios" HorizontalAlignment="Left" Height="250" Margin="10,221,0,0" VerticalAlignment="Top" Width="721" SelectionChanged="SelecionarUsuario"/>
+        <DataGrid AutoGenerateColumns="False" Name="tabelaUsuarios" HorizontalAlignment="Left" Height="250" Margin="10,221,0,0" VerticalAlignment="Top" Width="525" SelectionChanged="SelecionarUsuario">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Nº"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Nome}" Header="Nome"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Nascimento, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Nascimento"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding CriadoEm, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Cadastro"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Cpf}" Header="CPF"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding Administrador}" Header="Administrador?"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
         <Button x:Name="atualizar" Content="Atualizar" Visibility="Hidden" HorizontalAlignment="Left" Margin="148,187,0,0" VerticalAlignment="Top" Width="75" Click="Atualizar"/>
         <TextBox x:Name="id" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="103,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="cancelarAtulizar" Visibility="Hidden" Content="Cancelar Atualizar" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="105" Click="CancelarAtualizar"/>
-        <!--<ComboBox Name="tipopessoa" HorizontalAlignment="Left" Margin="103,109,0,0" VerticalAlignment="Top" Width="120"/>-->
 
     </Grid>
 </Window>

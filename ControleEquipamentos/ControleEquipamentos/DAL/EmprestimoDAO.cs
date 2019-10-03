@@ -61,6 +61,8 @@ namespace ControleEquipamentos.DAL
         /// <returns></returns>
         public static List<Emprestimo> ListarEmprestimos() => ctx.Emprestimos.ToList();
 
+        public static List<Emprestimo> ListarNumeroDeEmprestimos(int quantidade=10) => ctx.Emprestimos.Include("Usuario").Include("Operador").Take(quantidade).ToList();
+
         /// <summary>
         /// Lista apenas os emprestimos com entrega atrasada
         /// </summary>
@@ -131,6 +133,9 @@ namespace ControleEquipamentos.DAL
         public static List<Emprestimo> ListarEmprestimosComEquipamento() => ctx.Emprestimos.Include("Equipamentos")
                                         .Include("Usuario").Include("Operador")
                                        .Where(x => !x.StatusDoEmprestimo).ToList();
+
+        public static List<Emprestimo> ListarEmprestimosComEquipamentoUsuarioOperador() => ctx.Emprestimos.Include("Equipamentos")
+                                        .Include("Usuario").Include("Operador").ToList();
         #endregion
 
     }
