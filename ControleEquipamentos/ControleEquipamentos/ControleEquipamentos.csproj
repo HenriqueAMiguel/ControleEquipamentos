@@ -85,7 +85,16 @@
     <Compile Include="Migrations\201910011819472_Inicio1.designer.cs">
       <DependentUpon>201910011819472_Inicio1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910012330356_Alteracoes0202.cs" />
+    <Compile Include="Migrations\201910012330356_Alteracoes0202.designer.cs">
+      <DependentUpon>201910012330356_Alteracoes0202.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910031803041_Alteracao0301.cs" />
+    <Compile Include="Migrations\201910031803041_Alteracao0301.designer.cs">
+      <DependentUpon>201910031803041_Alteracao0301.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Validacao.cs" />
     <Compile Include="Views\CadastroEmprestimo.xaml.cs">
       <DependentUpon>CadastroEmprestimo.xaml</DependentUpon>
     </Compile>
@@ -148,7 +157,6 @@
   <ItemGroup>
     <Compile Include="Models\Context.cs" />
     <Compile Include="Models\Emprestimo.cs" />
-    <Compile Include="Models\Enums\StatusEmprestimo.cs" />
     <Compile Include="Models\Enums\TipoPessoa.cs" />
     <Compile Include="Models\Equipamento.cs" />
     <Compile Include="Models\Ocorrencia.cs" />
@@ -180,6 +188,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910011819472_Inicio1.resx">
       <DependentUpon>201910011819472_Inicio1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910012330356_Alteracoes0202.resx">
+      <DependentUpon>201910012330356_Alteracoes0202.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910031803041_Alteracao0301.resx">
+      <DependentUpon>201910031803041_Alteracao0301.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

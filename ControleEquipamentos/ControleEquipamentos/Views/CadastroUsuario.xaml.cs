@@ -40,11 +40,17 @@ namespace ControleEquipamentos.Views
             p.Nascimento = nascimento.SelectedDate;
             p.Usuario = usuario.Text;
             p.Cpf = cpf.Text;
-            if(administrador.IsChecked == true)
+            if (administrador.IsChecked == true)
             {
                 p.Admin = true;
             }
-            //TODO: Validar CPF, validar usuario
+
+            if (!Validacao.ValidarCpf(cpf.Text))
+            {
+                MessageBox.Show("CPF inválido tente novamente");
+                return;
+            }
+            //TODO: validar usuario
 
             if (PessoaDAO.CadastrarPessoa(p))
             {
@@ -85,7 +91,7 @@ namespace ControleEquipamentos.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void tabelaUsuarios_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void SelecionarUsuario(object sender, SelectionChangedEventArgs e)
         {
             Pessoa u = (Pessoa)tabelaUsuarios.SelectedItem;
             id.Text = u.Id.ToString();
@@ -110,6 +116,12 @@ namespace ControleEquipamentos.Views
             if (administrador.IsChecked == true)
             {
                 p.Admin = true;
+            }
+
+            if (!Validacao.ValidarCpf(cpf.Text))
+            {
+                MessageBox.Show("CPF inválido tente novamente");
+                return;
             }
             //TODO: Validar CPF, validar usuario
 
@@ -136,6 +148,14 @@ namespace ControleEquipamentos.Views
             cancelarAtulizar.Visibility = Visibility.Hidden;
             cadastrar.Visibility = Visibility.Visible;
             atualizar.Visibility = Visibility.Hidden;
+        }
+
+        private void ValidarCpf(object sender, RoutedEventArgs e)
+        {
+            if (!Validacao.ValidarCpf(cpf.Text))
+            {
+                MessageBox.Show("CPF inválido tente novamente");
+            }
         }
 
         //TODO: Metodo para editar e excluir

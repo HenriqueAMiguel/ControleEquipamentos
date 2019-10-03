@@ -48,11 +48,28 @@ namespace ControleEquipamentos.DAL
             ctx.SaveChanges();
         }
 
-        public static List<Equipamento> ListarEquipamento() => ctx.Equipamentos.ToList();
+        public static List<Equipamento> ListarEquipamento() => ctx.Equipamentos.Include("Operador").ToList();
 
         public static Equipamento  ObterEquipamento(int id)
         {
             return ctx.Equipamentos.Find(id);
+        }
+
+        /// <summary>
+        /// Retorna true se equipamento estuver em um empréstimo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public static bool ValidarEquipamento(int id)
+        {
+            var eq = ObterEquipamento(id);
+            var emp = EmprestimoDAO.ListarEmprestimosComEquipamento().Where(x => x.Equipamentos.Contains(eq));
+
+            if (emp.Any())
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -5,22 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControleEquipamentos.Views"
         mc:Ignorable="d"
-        Title="CadastroEmprestimo" Height="450" Width="800">
+        Title="Cadastro de Empréstimos" Height="516" Width="814">
     <Grid>
-        <Label Content="Realizar Empréstimo" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-        <Label Content="Data do Emprestimo:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="dataEmprestimo"  HorizontalAlignment="Left" Margin="216,41,0,0" VerticalAlignment="Top"/>
-        <Label Content="Data Prevista Para Devolução:" HorizontalAlignment="Left" Margin="8,72,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dataPrevDevol"  HorizontalAlignment="Left" Margin="216,70,0,0" VerticalAlignment="Top"/>
-        <Label Content="Data Devolução:" HorizontalAlignment="Left" Margin="8,101,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dataDevolucao"  HorizontalAlignment="Left" Margin="216,99,0,0" VerticalAlignment="Top"/>
-        <Label Content="Operador:" HorizontalAlignment="Left" Margin="10,132,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboOperador" HorizontalAlignment="Left" Margin="216,136,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Usuário:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboUsuario" HorizontalAlignment="Left" Margin="216,163,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Equipamento:" HorizontalAlignment="Left" Margin="10,190,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboEquipamento" HorizontalAlignment="Left" Margin="216,190,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="256,238,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0.6" Click="Cadastrar" />
+        <Label Content="Lista de Equipamentos Emprestados" HorizontalAlignment="Left" Margin="367,15,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Data do Emprestimo:" HorizontalAlignment="Left" Margin="10,17,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="dataEmprestimo"  HorizontalAlignment="Left" Margin="216,17,0,0" VerticalAlignment="Top"/>
+        <Label Content="Data Prevista Para Devolução:" HorizontalAlignment="Left" Margin="8,48,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dataPrevDevol"  HorizontalAlignment="Left" Margin="216,46,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbDtDevolucao" Visibility="Hidden" Content="Data Devolução:" HorizontalAlignment="Left" Margin="8,79,0,0" VerticalAlignment="Top"/>
+        <DatePicker Visibility="Hidden" x:Name="dataDevolucao"  HorizontalAlignment="Left" Margin="216,77,0,0" VerticalAlignment="Top"/>
+        <Label Content="Operador:" HorizontalAlignment="Left" Margin="10,108,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboOperador" HorizontalAlignment="Left" Margin="216,112,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Usuário:" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboUsuario" HorizontalAlignment="Left" Margin="216,139,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Equipamento:" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboEquipamento" HorizontalAlignment="Left" Margin="216,166,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="261,229,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0.6" Click="Cadastrar" />
+        <CheckBox x:Name="devolvido" Content="Devolvido" Visibility="Hidden" HorizontalAlignment="Left" Margin="216,226,0,0" VerticalAlignment="Top"/>
+        <DataGrid AutoGenerateColumns="False" ColumnWidth="100" x:Name="tabelaEquipamentos" HorizontalAlignment="Left" Height="202" Margin="367,46,0,0" VerticalAlignment="Top" Width="417">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Descricao}" Header="Descrição"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Marca}" Header="Marca"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Modelo}" Header="Modelo"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding NumeroRegistro}" Header="Registro"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="Adicionar Equipamento" HorizontalAlignment="Left" Margin="207,200,0,0" VerticalAlignment="Top" Width="129" Click="addEquipamento" />
+        <DataGrid AutoGenerateColumns="False" x:Name="tabelaEmprestimos" ColumnWidth="100" HorizontalAlignment="Left" Height="149" Margin="10,314,0,0" VerticalAlignment="Top" Width="774" SelectionChanged="tabelaEmprestimos_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Nº"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Usuario.Nome}" Header="Usuário"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Operador.Nome}" Header="Operador"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataEmprestimo, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Criação"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataPrevistaDevolucao, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Previsão de Devolução"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataDevolucao, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Devolvido"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding StatusDoEmprestimo}" Header="Devolvido?"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Visibility="Hidden" x:Name="btnAtualizar" Content="Atualizar" HorizontalAlignment="Left" Margin="181,253,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="1,0.6" Click="Atualizar" />
+        <TextBox x:Name="id" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="94,249,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Lista de Empréstimos Criados" HorizontalAlignment="Left" Margin="10,283,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
 
     </Grid>
 </Window>

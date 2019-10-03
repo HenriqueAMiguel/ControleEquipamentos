@@ -24,7 +24,7 @@ namespace ControleEquipamentos.Views
         public RelatorioEmprestimos()
         {
             InitializeComponent();
-           List<Equipamento> eq = EquipamentoDAO.ListarEquipamento();
+            List<Equipamento> eq = EquipamentoDAO.ListarEquipamento();
             cboEquipamento.ItemsSource = eq;
             cboEquipamento.DisplayMemberPath = "Descricao";
             cboEquipamento.SelectedValuePath = "Id";
@@ -42,7 +42,36 @@ namespace ControleEquipamentos.Views
 
         private void Pesquisar(object sender, RoutedEventArgs e)
         {
+            int? idUsuario = Convert.ToInt32(cboUsuario.SelectedValue);
+            if (idUsuario == 0)
+                idUsuario = null;
 
+            int? idOperador = Convert.ToInt32(cboOperador.SelectedValue);
+            if (idOperador == 0)
+                idOperador = null;
+
+            int? idEquipamento = Convert.ToInt32(cboEquipamento.SelectedValue);
+            if (idEquipamento == 0)
+                idEquipamento = null;
+
+            DateTime? dataInicio = dtInicio.SelectedDate;
+            DateTime? dataFim = dtFim.SelectedDate;
+            DateTime? dataInicioDevolucao = dtIniDev.SelectedDate;
+            DateTime? dataFimDevolucao = dtFimDev.SelectedDate;
+
+            bool apenasAtrasados = false;
+            if (checkApenasAtrasados.IsChecked == true)
+                apenasAtrasados = true;
+
+            bool excluirDevolvidos = false;
+            if (checkExcluirDevolvidos.IsChecked == true)
+                excluirDevolvidos = true;
+
+
+            List<Emprestimo> emprestimos = EmprestimoDAO.ListarComParametros(idUsuario, idOperador, dataInicio,
+                dataFim, dataInicioDevolucao, dataFimDevolucao, idEquipamento, apenasAtrasados, excluirDevolvidos);
+
+            tabelaEmprestimos.ItemsSource = emprestimos;
         }
     }
 }

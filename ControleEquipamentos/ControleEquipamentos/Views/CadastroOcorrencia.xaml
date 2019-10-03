@@ -5,21 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ControleEquipamentos.Views"
         mc:Ignorable="d"
-        Title="CadastroOcorrencia" Height="450" Width="617.6">
+        Title="Cadastro de Ocorrências" Height="514" Width="799.1">
     <Grid>
-        <Label Content="Descrição:" HorizontalAlignment="Left" Margin="22,53,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="descricao" HorizontalAlignment="Left" Height="23" Margin="137,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Data Ocorrencia:" HorizontalAlignment="Left" Margin="22,81,0,0" VerticalAlignment="Top"/>
-        <DatePicker Name="dataocorrencia" HorizontalAlignment="Left" Margin="137,81,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Equipamento:" HorizontalAlignment="Left" Margin="22,109,0,0" VerticalAlignment="Top"/>
-        <ComboBox Name="cboEquipamento"  HorizontalAlignment="Left" Margin="137,109,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Ordem de Serviço:" HorizontalAlignment="Left" Margin="22,136,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="ordemservico" HorizontalAlignment="Left" Height="23" Margin="137,136,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Data Ocorrencia:" HorizontalAlignment="Left" Margin="22,81,0,0" VerticalAlignment="Top"/>
-        <Label Content="Previsão de Retorno" HorizontalAlignment="Left" Margin="22,164,0,0" VerticalAlignment="Top"/>
-        <DatePicker x:Name="previsaoRetorno" HorizontalAlignment="Left" Margin="137,164,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Cadastrar" HorizontalAlignment="Left" Margin="137,192,0,0" VerticalAlignment="Top" Width="120" Click="Cadastrar"/>
-        <Label Content="Cadastro de Ocorrências" HorizontalAlignment="Left" Margin="22,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Descrição:" HorizontalAlignment="Left" Margin="22,19,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="descricao" HorizontalAlignment="Left" Height="23" Margin="219,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Data Ocorrencia:" HorizontalAlignment="Left" Margin="22,47,0,0" VerticalAlignment="Top"/>
+        <DatePicker Name="dataocorrencia" HorizontalAlignment="Left" Margin="219,47,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Equipamento:" HorizontalAlignment="Left" Margin="22,75,0,0" VerticalAlignment="Top"/>
+        <ComboBox Name="cboEquipamento"  HorizontalAlignment="Left" Margin="219,75,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Ordem de Serviço:" HorizontalAlignment="Left" Margin="22,102,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="ordemservico" HorizontalAlignment="Left" Height="23" Margin="219,102,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Previsão de Retorno" HorizontalAlignment="Left" Margin="22,130,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="previsaoRetorno" HorizontalAlignment="Left" Margin="219,130,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnCadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="219,158,0,0" VerticalAlignment="Top" Width="120" Click="Cadastrar"/>
+        <Label Content="Lista de Ocorrências" HorizontalAlignment="Left" Margin="22,190,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DataGrid AutoGenerateColumns="False" Name="tabelaOcorrencias" HorizontalAlignment="Left" Height="226" Margin="22,221,0,0" VerticalAlignment="Top" Width="739" SelectionChanged="tabelaOcorrencias_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Id}" Header="Nº"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Descricao}" Header="Descrição"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataOcorrencia, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Ocorrência"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Equipamento.Descricao}" Header="Equipamento"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Equipamento.NumeroRegistro}" Header="Nº Reg Equipamento"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Operador.Nome}" Header="Operador"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding PrevisaoRetorno, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Prev. Retorno"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DataFinalizado, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Finalizado"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding Finalizado}" Header="Finalizado?"></DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btnAtualizar" Content="Atualizar" Visibility="Hidden" HorizontalAlignment="Left" Margin="219,159,0,0" VerticalAlignment="Top" Width="120" Click="Atualizar"/>
+        <Button x:Name="btnCancelarAtualizar" Content="Cancelar Atualizar" Visibility="Hidden" HorizontalAlignment="Left" Margin="25,156,0,0" VerticalAlignment="Top" Width="120" Click="CancelarAtualizar"/>
+        <Label x:Name="lbDataDevolvido" Visibility="Hidden" Content="Data Devolvido:" HorizontalAlignment="Left" Margin="380,21,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dataDevolvido" Visibility="Hidden" HorizontalAlignment="Left" Margin="512,21,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="id" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="219,19,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>

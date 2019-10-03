@@ -61,11 +61,14 @@ namespace ControleEquipamentos.Views
             eq.Marca = marca.Text;
             eq.Modelo = modelo.Text;
             eq.NumeroRegistro = Convert.ToInt32(numeroregistro.Text);
+            if (Inativo.IsChecked == true)
+                eq.Inativo = true;
 
             if (EquipamentoDAO.AtualizarEquipamento(eq))
             {
                 MessageBox.Show("Atualizado com sucesso!");
                 LimparFormulario();
+                CarregarEquipamentos();
             }
             else
             {
@@ -91,20 +94,26 @@ namespace ControleEquipamentos.Views
 
         private void Cancelar(object sender, RoutedEventArgs e)
         {
+            LimparFormulario();
             cancelarAtualizar.Visibility = Visibility.Hidden;
             atualizar.Visibility = Visibility.Hidden;
             cadastrar.Visibility = Visibility.Visible;
+            Inativo.Visibility = Visibility.Hidden;
         }
 
         private void tabelaEquipamento_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Equipamento eq = EquipamentoDAO.ObterEquipamento(Convert.ToInt32(id.Text));
+            Equipamento eq = (Equipamento)tabelaEquipamento.SelectedItem;
+            id.Text = eq.Id.ToString();
+            descricao.Text = eq.Descricao;
+            marca.Text = eq.Marca;
+            modelo.Text = eq.Modelo;
+            numeroregistro.Text = eq.NumeroRegistro.ToString();
 
             cadastrar.Visibility = Visibility.Hidden;
             atualizar.Visibility = Visibility.Visible;
             cancelarAtualizar.Visibility = Visibility.Visible;
+            Inativo.Visibility = Visibility.Visible;
         }
-
-        //TODO: Metodo para excluir
     }
 }

@@ -24,6 +24,7 @@ namespace ControleEquipamentos.Views
         public CadastroOcorrencia()
         {
             InitializeComponent();
+            CarregarOcorrencias();
             cboEquipamento.ItemsSource = EquipamentoDAO.ListarEquipamento();
             cboEquipamento.DisplayMemberPath = "Descricao";
             cboEquipamento.SelectedValuePath = "Id";
@@ -42,11 +43,83 @@ namespace ControleEquipamentos.Views
             if (OcorrenciaDAO.CadastrarOcorrencia(o))
             {
                 MessageBox.Show("Ocorrência Cadastrada com sucesso!");
+                CarregarOcorrencias();
+                LimparFormulario();
             }
             else
             {
                 MessageBox.Show("Ocorrência não Cadastrada");
             }
+        }
+
+        private void CarregarOcorrencias()
+        {
+            List<Ocorrencia> ocorrencias = OcorrenciaDAO.ListarOcorrencias();
+            tabelaOcorrencias.ItemsSource = ocorrencias;
+        }
+
+        private void LimparFormulario()
+        {
+            descricao.Clear();
+            dataocorrencia.SelectedDate = null;
+            cboEquipamento.SelectedValue = null;
+            ordemservico.Clear();
+            dataDevolvido.SelectedDate = null;
+            previsaoRetorno = null;
+        }
+
+        private void Atualizar(object sender, RoutedEventArgs e)
+        {
+            Ocorrencia oc = OcorrenciaDAO.BuscarOcorrencia(Convert.ToInt32(id.Text));
+            oc.DataDevolucao = dataDevolvido.SelectedDate;
+            oc.Finalizado = true;
+
+            if (OcorrenciaDAO.AtualizarOcorrencia(oc))
+            {
+                MessageBox.Show("Ocorrência atualizada.");
+                LimparFormulario();
+                CarregarOcorrencias();
+                btnCadastrar.Visibility = Visibility.Visible;
+
+                lbDataDevolvido.Visibility = Visibility.Hidden;
+                dataDevolvido.Visibility = Visibility.Hidden;
+                btnAtualizar.Visibility = Visibility.Hidden;
+                btnCancelarAtualizar.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                MessageBox.Show("Ocorrência não atualizada.");
+            }
+
+        }
+
+        private void CancelarAtualizar(object sender, RoutedEventArgs e)
+        {
+            LimparFormulario();
+            btnCadastrar.Visibility = Visibility.Visible;
+            
+            lbDataDevolvido.Visibility = Visibility.Hidden;
+            dataDevolvido.Visibility = Visibility.Hidden;
+            btnAtualizar.Visibility = Visibility.Hidden;
+            btnCancelarAtualizar.Visibility = Visibility.Hidden;
+        }
+
+        private void tabelaOcorrencias_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            btnCadastrar.Visibility = Visibility.Hidden;
+
+            lbDataDevolvido.Visibility = Visibility.Visible;
+            dataDevolvido.Visibility = Visibility.Visible;
+            btnAtualizar.Visibility = Visibility.Visible;
+            btnCancelarAtualizar.Visibility = Visibility.Visible;
+
+            Ocorrencia oc = (Ocorrencia)tabelaOcorrencias.SelectedItem;
+            id.Text = oc.Id.ToString();
+            descricao.Text = oc.Descricao;
+            dataocorrencia.SelectedDate = oc.DataOcorrencia;
+            cboEquipamento.SelectedValue = oc.Equipamento.Id;
+            ordemservico.Text = oc.OrdemDeServico.ToString();
+            previsaoRetorno.SelectedDate = oc.PrevisaoRetorno;
         }
 
         //TODO: Metodo para editar e excluir
