@@ -40,6 +40,7 @@ namespace ControleEquipamentos.Views
             p.Nascimento = nascimento.SelectedDate;
             p.Usuario = usuario.Text;
             p.Cpf = cpf.Text;
+            p.Sexo = cboSexo.Text;
             if (administrador.IsChecked == true)
             {
                 p.Admin = true;
@@ -80,10 +81,11 @@ namespace ControleEquipamentos.Views
         private void LimparFormulario()
         {
             nome.Text = "";
-            nascimento.SelectedDate = DateTime.Now;
+            nascimento.SelectedDate = null;
             usuario.Text = "";
             cpf.Text = "";
             administrador.IsChecked = false;
+            cboSexo.SelectedItem = null;
         }
 
         /// <summary>
@@ -100,6 +102,7 @@ namespace ControleEquipamentos.Views
             usuario.Text = u.Usuario;
             cpf.Text = u.Cpf;
             administrador.IsChecked = u.Admin;
+            cboSexo.Text = u.Sexo;
 
             cadastrar.Visibility = Visibility.Hidden;
             atualizar.Visibility = Visibility.Visible;
@@ -113,6 +116,7 @@ namespace ControleEquipamentos.Views
             p.Nascimento = nascimento.SelectedDate;
             p.Usuario = usuario.Text;
             p.Cpf = cpf.Text;
+            p.Sexo = cboSexo.Text;
             if (administrador.IsChecked == true)
             {
                 p.Admin = true;

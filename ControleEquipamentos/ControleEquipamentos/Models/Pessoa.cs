@@ -19,6 +19,7 @@ namespace ControleEquipamentos.Models
         public DateTime CriadoEm { get; set; } = DateTime.Now;
         //public TipoPessoa Tipo { get; set; }
         public string Usuario { get; set; }
+        public string Sexo { get; set; }
         public string Cpf { get; set; }
         public bool Admin { get; set; }
     }

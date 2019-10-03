@@ -8,17 +8,17 @@
         Title="Cadastro de Usuario" Height="524.4" Width="568.2">
     <Grid>
         <Label Content="Lista de Usuários Cadastrados" HorizontalAlignment="Left" Margin="10,212,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <Label Content="Nome:" HorizontalAlignment="Left" Margin="10,53,0,0" VerticalAlignment="Top"/>
-        <TextBox Name="nome" HorizontalAlignment="Left" Height="23" Margin="103,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="Data Nasc.:" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top"/>
+        <Label Content="Nome:" HorizontalAlignment="Left" Margin="10,24,0,0" VerticalAlignment="Top"/>
+        <TextBox Name="nome" HorizontalAlignment="Left" Height="23" Margin="103,24,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Data Nasc.:" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top"/>
         <!--<Label Content="Tipo:" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top"/>-->
-        <Label Content="Usuario:" HorizontalAlignment="Left" Margin="10,111,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="usuario" HorizontalAlignment="Left" Height="23" Margin="103,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Label Content="CPF:" HorizontalAlignment="Left" Margin="10,139,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="cpf" HorizontalAlignment="Left" Height="23" Margin="103,139,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="ValidarCpf"/>
+        <Label Content="Usuario:" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="usuario" HorizontalAlignment="Left" Height="23" Margin="103,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="CPF:" HorizontalAlignment="Left" Margin="10,110,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="cpf" HorizontalAlignment="Left" Height="23" Margin="103,110,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="ValidarCpf"/>
         <CheckBox Name="administrador" Content="Administrador" HorizontalAlignment="Left" Margin="103,167,0,0" VerticalAlignment="Top"/>
         <Button Name="cadastrar" Content="Cadastrar" HorizontalAlignment="Left" Margin="148,187,0,0" VerticalAlignment="Top" Width="75" Click="Cadastrar"/>
-        <DatePicker Name="nascimento" HorizontalAlignment="Left" Margin="103,81,0,0" VerticalAlignment="Top" Width="120"/>
+        <DatePicker Name="nascimento" HorizontalAlignment="Left" Margin="103,52,0,0" VerticalAlignment="Top" Width="120"/>
         <DataGrid AutoGenerateColumns="False" Name="tabelaUsuarios" HorizontalAlignment="Left" Height="233" Margin="10,238,0,0" VerticalAlignment="Top" Width="525" SelectionChanged="SelecionarUsuario">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Id}" Header="Nº"></DataGridTextColumn>
@@ -26,12 +26,19 @@
                 <DataGridTextColumn Binding="{Binding Nascimento, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Nascimento"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding CriadoEm, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Cadastro"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Cpf}" Header="CPF"></DataGridTextColumn>
-                <DataGridCheckBoxColumn Binding="{Binding Administrador}" Header="Administrador?"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Binding="{Binding Sexo}" Header="Sexo"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Binding="{Binding Admin}" Header="Administrador?"></DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="atualizar" Content="Atualizar" Visibility="Hidden" HorizontalAlignment="Left" Margin="148,187,0,0" VerticalAlignment="Top" Width="75" Click="Atualizar"/>
         <TextBox x:Name="id" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="103,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="cancelarAtulizar" Visibility="Hidden" Content="Cancelar Atualizar" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="105" Click="CancelarAtualizar"/>
+        <ComboBox Name="cboSexo"  HorizontalAlignment="Left" Margin="103,138,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Masculino"></ComboBoxItem>
+            <ComboBoxItem Content="Feminino"></ComboBoxItem>
+            <ComboBoxItem Content="Outro"></ComboBoxItem>
+        </ComboBox>
+        <Label Content="Sexo:" HorizontalAlignment="Left" Margin="10,134,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

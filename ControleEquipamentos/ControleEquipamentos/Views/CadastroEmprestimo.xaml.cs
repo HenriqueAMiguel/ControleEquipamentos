@@ -144,6 +144,7 @@ namespace ControleEquipamentos.Views
 
         private void LimparFormulario()
         {
+            id.Clear();
             dataEmprestimo.SelectedDate = null;
             dataDevolucao.SelectedDate = null;
             dataPrevDevol.SelectedDate = null;
