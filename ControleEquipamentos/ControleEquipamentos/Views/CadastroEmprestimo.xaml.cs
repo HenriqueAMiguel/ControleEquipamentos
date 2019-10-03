@@ -50,6 +50,11 @@ namespace ControleEquipamentos.Views
             Pessoa p = PessoaDAO.ObterPessoa(Convert.ToInt32(cboOperador.SelectedValue));
             emp.Operador = p;
 
+            if(list == null || list.Count <= 0)
+            {
+                MessageBox.Show("não pode ser cadastrado sem adicionar um item");
+                return;
+            }
             Pessoa pe = PessoaDAO.ObterPessoa(Convert.ToInt32(cboUsuario.SelectedValue));
             emp.Usuario = pe;
             emp.Equipamentos = list;
@@ -144,6 +149,7 @@ namespace ControleEquipamentos.Views
 
         private void LimparFormulario()
         {
+            id.Clear();
             dataEmprestimo.SelectedDate = null;
             dataDevolucao.SelectedDate = null;
             dataPrevDevol.SelectedDate = null;

@@ -40,6 +40,7 @@ namespace ControleEquipamentos.Views
             p.Nascimento = nascimento.SelectedDate;
             p.Usuario = usuario.Text;
             p.Cpf = cpf.Text;
+            p.RG = rg1.Text;
             if (administrador.IsChecked == true)
             {
                 p.Admin = true;
