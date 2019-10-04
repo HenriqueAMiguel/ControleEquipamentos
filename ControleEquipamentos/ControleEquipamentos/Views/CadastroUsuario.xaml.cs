@@ -159,7 +159,7 @@ namespace ControleEquipamentos.Views
             }
         }
 
-        private void Rg1_Text(object sender, TextChangedEventArgs e)
+        private void Rg_Text(object sender, TextChangedEventArgs e)
         {
 
         }
