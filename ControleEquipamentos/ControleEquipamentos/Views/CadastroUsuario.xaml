@@ -26,6 +26,7 @@
                 <DataGridTextColumn Binding="{Binding Nascimento, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Nascimento"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding CriadoEm, StringFormat='{}{0:dd/MM/yyyy}'}" Header="Data Cadastro"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Cpf}" Header="CPF"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Rg}" Header="RG"></DataGridTextColumn>
                 <DataGridCheckBoxColumn Binding="{Binding Admin}" Header="Administrador?"></DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
@@ -33,7 +34,7 @@
         <TextBox x:Name="id" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="103,53,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="cancelarAtulizar" Visibility="Hidden" Content="Cancelar Atualizar" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="105" Click="CancelarAtualizar"/>
         <Label x:Name="rg" Content="RG:" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="rg1" HorizontalAlignment="Left" Height="23" Margin="103,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" LostFocus="ValidarRg"/>
+        <TextBox x:Name="rg1" HorizontalAlignment="Left" Height="23" Margin="103,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="Rg1_TextChanged" />
 
     </Grid>
 </Window>

@@ -159,6 +159,11 @@ namespace ControleEquipamentos.Views
             }
         }
 
+        private void Rg1_Text(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
         //TODO: Metodo para editar e excluir
     }
 }

@@ -21,6 +21,6 @@ namespace ControleEquipamentos.Models
         public string Usuario { get; set; }
         public string Cpf { get; set; }
         public bool Admin { get; set; }
-        public object RG { get; set; }
+        public string Rg { get; set; }
     }
 }
